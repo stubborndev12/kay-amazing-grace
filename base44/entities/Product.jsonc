@@ -1,0 +1,64 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "mens_wear",
+        "ladies_wear",
+        "childrens_wear",
+        "corporate_wear",
+        "casual_wear",
+        "sportswear",
+        "shoes_slippers",
+        "bags_accessories",
+        "underwear_nightwear"
+      ],
+      "description": "Product category"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in Naira"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Product image URL"
+    },
+    "tag": {
+      "type": "string",
+      "enum": [
+        "new_drop",
+        "best_seller",
+        "grade_a",
+        "rare_find",
+        "available"
+      ],
+      "default": "available",
+      "description": "Product status tag"
+    },
+    "is_available": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether product is in stock"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show on homepage"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "price"
+  ]
+}

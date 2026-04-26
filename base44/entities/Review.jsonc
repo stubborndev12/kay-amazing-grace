@@ -1,0 +1,27 @@
+{
+  "name": "Review",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "description": "Customer name"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Rating from 1-5"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Review text"
+    },
+    "location": {
+      "type": "string",
+      "description": "Customer location"
+    }
+  },
+  "required": [
+    "customer_name",
+    "rating",
+    "comment"
+  ]
+}
