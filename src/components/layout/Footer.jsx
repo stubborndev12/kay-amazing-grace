@@ -17,7 +17,7 @@ export default function Footer() {
               className="h-16 w-auto object-contain brightness-0 invert mb-4"
             />
             <p className="text-sm text-primary-foreground/50 leading-relaxed">
-              Quality thrift wear, carefully selected for style, durability, and value.
+              Quality okirika, thrift bales &amp; fashion — for retail buyers and resellers. Based in Aba, Nigeria.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export default function Footer() {
             © 2024 Kay Amazing Grace Global. All rights reserved.
           </p>
           <p className="text-xs text-primary-foreground/30 tracking-wider">
-            QUALITY · STYLE · VALUE
+            QUALITY · TRUST · VALUE — ABA, NIGERIA
           </p>
         </div>
       </div>

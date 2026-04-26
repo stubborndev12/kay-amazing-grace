@@ -8,7 +8,7 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import ReviewsSection from "../components/home/ReviewsSection";
 import CTABanner from "../components/home/CTABanner";
 
-const HERO_IMAGE = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/1573a3faa_generated_fc173587.png";
+const HERO_IMAGE = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/9a0a334ce_generated_image.png";
 
 const CATEGORY_IMAGES = {
   mens_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/2fd0d0773_generated_69834796.png",
