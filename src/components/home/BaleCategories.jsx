@@ -18,7 +18,7 @@ const CATEGORIES = [
     label: "Mixed Bale",
     sub: "Mixed Bag · Supreme Mix · Korea Bale · Box Bale",
     desc: "Carefully selected premium thrift bales suitable for resellers and wholesale buyers.",
-    img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
     badge: "POPULAR",
   },
   {
@@ -26,7 +26,7 @@ const CATEGORIES = [
     label: "Korea Bale",
     sub: "High-grade Korea quality bales",
     desc: "Premium Korea-grade thrift bales known for quality fabric and durability.",
-    img: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80",
     badge: "GRADE A+",
   },
   {
@@ -34,7 +34,7 @@ const CATEGORIES = [
     label: "Ladies Bale",
     sub: "Gowns · Blouses · Skirts · Leggings · Scarves",
     desc: "Full range of ladies wear — from silk gowns to cotton blouses, bumshorts and more.",
-    img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
     badge: "LADIES",
   },
   {
@@ -42,7 +42,7 @@ const CATEGORIES = [
     label: "Men Bale",
     sub: "Jeans · T-Shirts · Corporate Shirts · Shorts",
     desc: "Men's okirika bales including jeans, t-shirts, corporate wear and casual styles.",
-    img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80",
     badge: "MEN",
   },
   {
@@ -50,7 +50,7 @@ const CATEGORIES = [
     label: "Jackets / Hoodies",
     sub: "Hoodies · Zippers · Jean Jackets · Fleece · Track",
     desc: "Quality winter and sports bales — hoodies, jackets, jerseys, and fleece items.",
-    img: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
     badge: "WINTER",
   },
   {
@@ -58,7 +58,7 @@ const CATEGORIES = [
     label: "Shoes & Accessories",
     sub: "Shoes · Slippers · Socks · School Bags",
     desc: "Footwear and accessories including rubber slippers, shoes, socks, and school bags.",
-    img: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
     badge: "FOOTWEAR",
   },
   {
@@ -66,7 +66,7 @@ const CATEGORIES = [
     label: "Nightwear / Underwear",
     sub: "Silk Nightwear · Cotton Nightwear · Bra · Girdle",
     desc: "Ladies and general underwear bales — silk nightwear, brassieres, sports bra and girdle.",
-    img: "https://images.unsplash.com/photo-1603400521630-9f2de124b33b?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&q=80",
     badge: "NIGHTWEAR",
   },
   {
@@ -74,7 +74,7 @@ const CATEGORIES = [
     label: "Special / Coded Bales",
     sub: "CSW · ATW · CTW · CWW",
     desc: "Premium coded bales for experienced resellers. Contact us for category details and pricing.",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
     badge: "CODED",
   },
   {
@@ -82,7 +82,7 @@ const CATEGORIES = [
     label: "Bags & Accessories",
     sub: "Towel · Jean Dress · Jeanshort",
     desc: "Miscellaneous bale categories including towels, jean dresses, and jean shorts.",
-    img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=85",
+    img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
     badge: "BAGS",
   },
 ];
@@ -101,7 +101,10 @@ function CategoryCard({ cat, index }) {
         <img
           src={cat.img}
           alt={cat.label}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-75 group-hover:opacity-95"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108 opacity-80 group-hover:opacity-100"
+          style={{ transform: "scale(1)" }}
+          onMouseEnter={e => e.currentTarget.style.transform = "scale(1.08)"}
+          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
