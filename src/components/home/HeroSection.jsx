@@ -45,12 +45,15 @@ export default function HeroSection() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, ease: "easeOut" }}
             >
-              {/* Label */}
-              <div className="flex items-center gap-2 mb-6">
-                <div className="h-px w-8 bg-[#B8860B]" />
-                <span className="text-[#B8860B] text-[11px] font-bold uppercase tracking-[0.32em]">
-                  Premium Wholesale Supplier
-                </span>
+              {/* Brand Label */}
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="h-px w-8 bg-[#B8860B]" />
+                  <span className="text-white font-bold text-[15px] tracking-wide">Kay Amazing Grace Global</span>
+                </div>
+                <p className="text-[#B8860B] text-[10px] font-semibold uppercase tracking-[0.28em] pl-10">
+                  Premium Wholesale Okirika &amp; Thrift Bale Supplier
+                </p>
               </div>
 
               {/* Headline */}

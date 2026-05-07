@@ -39,13 +39,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-[70px]">
 
-            {/* Logo */}
+            {/* Logo + Brand Name */}
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <img
                 src={EAGLE_LOGO}
                 alt="Kay Amazing Grace Global"
-                className="h-12 w-auto object-contain"
+                className="h-11 w-auto object-contain"
               />
+              <div className="flex flex-col leading-none">
+                <span className="text-white font-bold text-[13px] tracking-wide">Kay Amazing Grace</span>
+                <span className="text-[#B8860B] font-semibold text-[10px] tracking-[0.22em] uppercase">Global</span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
@@ -116,7 +120,13 @@ export default function Navbar() {
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-5 h-[70px] border-b border-[#B8860B]/20">
-                <img src={EAGLE_LOGO} alt="Kay Amazing Grace Global" className="h-10 w-auto object-contain" />
+                <div className="flex items-center gap-2.5">
+                  <img src={EAGLE_LOGO} alt="Kay Amazing Grace Global" className="h-10 w-auto object-contain" />
+                  <div className="flex flex-col leading-none">
+                    <span className="text-white font-bold text-[12px] tracking-wide">Kay Amazing Grace</span>
+                    <span className="text-[#B8860B] font-semibold text-[9px] tracking-[0.22em] uppercase">Global</span>
+                  </div>
+                </div>
                 <button onClick={() => setIsOpen(false)} className="p-2 text-white/60 hover:text-white">
                   <X className="w-5 h-5" />
                 </button>
