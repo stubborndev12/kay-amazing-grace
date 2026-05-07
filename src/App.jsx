@@ -21,6 +21,17 @@ import AdminNewArrivals from './pages/admin/NewArrivals';
 import AdminReviews from './pages/admin/Reviews';
 import AdminGallery from './pages/admin/Gallery';
 import AdminSettings from './pages/admin/Settings';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import FAQ from './pages/FAQ';
+import OkirikaBalesAba from './pages/seo/OkirikaBalesAba';
+import ThriftBalesNigeria from './pages/seo/ThriftBalesNigeria';
+import KoreaBales from './pages/seo/KoreaBales';
+import MixedBales from './pages/seo/MixedBales';
+import LadiesBales from './pages/seo/LadiesBales';
+import MenBales from './pages/seo/MenBales';
+import ShoesBagsBales from './pages/seo/ShoesBagsBales';
+import Delivery from './pages/seo/Delivery';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -54,6 +65,17 @@ const AuthenticatedApp = () => {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/seo/okirika-bales-aba" element={<OkirikaBalesAba />} />
+        <Route path="/seo/thrift-bales-nigeria" element={<ThriftBalesNigeria />} />
+        <Route path="/seo/korea-bales" element={<KoreaBales />} />
+        <Route path="/seo/mixed-bales" element={<MixedBales />} />
+        <Route path="/seo/ladies-bales" element={<LadiesBales />} />
+        <Route path="/seo/men-bales" element={<MenBales />} />
+        <Route path="/seo/shoes-bags-bales" element={<ShoesBagsBales />} />
+        <Route path="/seo/delivery" element={<Delivery />} />
       </Route>
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route
