@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import {
   LayoutDashboard, Package, MessageSquare, Star, Image,
-  Settings, Sparkles, Menu, X, LogOut, ChevronRight
+  Settings, Sparkles, Menu, LogOut, ChevronRight, User
 } from "lucide-react";
 import { base44 } from "@/api/base44Client";
+import { useAuth } from "@/lib/AuthContext";
 
 const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
 
@@ -21,6 +22,7 @@ const navItems = [
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const isActive = (item) =>
     item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path);
@@ -62,6 +64,21 @@ export default function AdminLayout() {
           );
         })}
       </nav>
+
+      {/* User info */}
+      {user && (
+        <div className="px-4 py-3 border-t border-white/8 border-b border-white/8">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-full bg-[#B8860B]/20 border border-[#B8860B]/40 flex items-center justify-center shrink-0">
+              <User className="w-3.5 h-3.5 text-[#B8860B]" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-white text-[11px] font-bold truncate">{user.full_name || "Admin"}</p>
+              <p className="text-[#B8860B] text-[8px] uppercase font-bold tracking-widest">Super Admin</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Bottom */}
       <div className="px-3 py-4 border-t border-white/8">
@@ -111,8 +128,8 @@ export default function AdminLayout() {
             <Menu className="w-5 h-5" />
           </button>
           <div className="hidden lg:block">
-            <p className="text-[11px] text-white/40 uppercase tracking-widest">
-              Kay Amazing Grace Global — Admin Control Panel
+            <p className="text-[11px] text-white font-semibold">
+              Welcome back, <span className="text-[#B8860B]">Kay Amazing Grace Global Admin</span>
             </p>
           </div>
           <div className="flex items-center gap-2">
