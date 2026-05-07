@@ -127,39 +127,7 @@ export default function HeroSection() {
                   <img src={EAGLE_LOGO} alt="Kay Amazing Grace Global" className="w-20 h-20 object-contain drop-shadow-2xl opacity-90" />
                 </div>
 
-                {/* Bottom badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.9 }}
-                  className="absolute bottom-0 inset-x-0 p-5 flex items-center gap-3"
-                >
-                  <Package className="w-5 h-5 text-[#B8860B] shrink-0" />
-                  <div>
-                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#B8860B]">
-                      Wholesale · Resellers · Bulk Buyers
-                    </p>
-                    <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">
-                      Your Reliable Okirika Bale Partner — Aba, Nigeria
-                    </p>
-                  </div>
-                </motion.div>
               </div>
-
-              {/* Floating stat cards */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
-                className="absolute -left-8 top-1/3 flex flex-col gap-2"
-              >
-                {[{ val: "500+", lbl: "Buyers" }, { val: "50+", lbl: "Categories" }].map(s => (
-                  <div key={s.lbl} className="px-4 py-3 bg-[#B8860B] text-black text-center shadow-xl shadow-[#B8860B]/30">
-                    <p className="text-lg font-black leading-none">{s.val}</p>
-                    <p className="text-[8px] font-bold uppercase tracking-wider mt-0.5 opacity-70">{s.lbl}</p>
-                  </div>
-                ))}
-              </motion.div>
             </motion.div>
 
           </div>
