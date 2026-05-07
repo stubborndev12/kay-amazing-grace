@@ -11,6 +11,14 @@ import Shop from './pages/Shop';
 import ProductDetail from './pages/ProductDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './pages/admin/Dashboard';
+import AdminCatalog from './pages/admin/Catalog';
+import AdminInquiries from './pages/admin/Inquiries';
+import AdminNewArrivals from './pages/admin/NewArrivals';
+import AdminReviews from './pages/admin/Reviews';
+import AdminGallery from './pages/admin/Gallery';
+import AdminSettings from './pages/admin/Settings';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -44,6 +52,15 @@ const AuthenticatedApp = () => {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+      </Route>
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminDashboard />} />
+        <Route path="catalog" element={<AdminCatalog />} />
+        <Route path="inquiries" element={<AdminInquiries />} />
+        <Route path="new-arrivals" element={<AdminNewArrivals />} />
+        <Route path="reviews" element={<AdminReviews />} />
+        <Route path="gallery" element={<AdminGallery />} />
+        <Route path="settings" element={<AdminSettings />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

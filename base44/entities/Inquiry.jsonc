@@ -1,0 +1,43 @@
+{
+  "name": "Inquiry",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "description": "Customer name"
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "product_requested": {
+      "type": "string",
+      "description": "Bale or product requested"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "negotiating",
+        "paid",
+        "delivered",
+        "lost"
+      ],
+      "default": "new",
+      "description": "Inquiry status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Admin notes"
+    },
+    "source": {
+      "type": "string",
+      "description": "Where the inquiry came from"
+    }
+  },
+  "required": [
+    "customer_name",
+    "phone_number"
+  ]
+}

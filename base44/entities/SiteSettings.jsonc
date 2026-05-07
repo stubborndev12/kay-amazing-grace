@@ -1,0 +1,33 @@
+{
+  "name": "SiteSettings",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Setting key"
+    },
+    "value": {
+      "type": "string",
+      "description": "Setting value"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label"
+    },
+    "setting_type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "image",
+        "url",
+        "toggle",
+        "whatsapp"
+      ],
+      "default": "text"
+    }
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

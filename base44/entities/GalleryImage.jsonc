@@ -1,0 +1,47 @@
+{
+  "name": "GalleryImage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Image title"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Image URL"
+    },
+    "youtube_url": {
+      "type": "string",
+      "description": "YouTube video link (optional)"
+    },
+    "gallery_type": {
+      "type": "string",
+      "enum": [
+        "warehouse",
+        "bale_opening",
+        "sorting",
+        "new_arrivals",
+        "customer_proof"
+      ],
+      "default": "warehouse",
+      "description": "Gallery section"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Feature prominently"
+    },
+    "media_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "video"
+      ],
+      "default": "image"
+    }
+  },
+  "required": [
+    "title",
+    "media_type"
+  ]
+}

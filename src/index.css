@@ -102,6 +102,16 @@
   }
 }
 
+/* Admin UI utilities */
+@layer components {
+  .admin-label {
+    @apply block text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 mb-1.5;
+  }
+  .admin-input {
+    @apply w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-3 py-2.5 focus:outline-none focus:border-[#B8860B]/60 placeholder:text-white/25 transition-colors;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
