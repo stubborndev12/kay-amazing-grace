@@ -1,107 +1,130 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Phone, MessageCircle } from "lucide-react";
-import { LOGO_URL, getWhatsAppGeneralUrl } from "@/lib/constants";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/6b304a301_ChatGPTImageMay7202604_17_01PM.png";
+const WA_URL = "https://wa.me/2348035239489?text=Hello%20Kay%20Amazing%20Grace%20Global%2C%20I%27m%20interested%20in%20your%20bale%20products.%20Please%20send%20availability%20and%20current%20wholesale%20pricing.";
+
+const WaIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
+
+const BALE_LINKS = [
+  "Mixed Bale", "Korea Bale", "Ladies Bale", "Men Bale", "Jackets / Hoodies", "Shoes & Accessories"
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-primary-foreground">
-      <div className="gold-hairline w-full" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-[#080808] border-t border-[#B8860B]/20">
+      {/* Top gold line */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#B8860B]/60 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="lg:col-span-1">
             <img
-              src={LOGO_URL}
+              src={EAGLE_LOGO}
               alt="Kay Amazing Grace Global"
-              className="h-16 w-auto object-contain brightness-0 invert mb-4"
+              className="h-20 w-auto object-contain mb-4"
             />
-            <p className="text-sm text-primary-foreground/50 leading-relaxed">
-              Quality okirika, thrift bales &amp; fashion — for retail buyers and resellers. Based in Aba, Nigeria.
+            <p className="text-white/40 text-[12px] leading-relaxed mb-4">
+              Nigeria's trusted premium wholesale okirika and thrift bale supplier. Based in Aba — supplying resellers nationwide.
             </p>
+            <div className="flex flex-wrap gap-1.5">
+              {["Wholesale Only", "Bulk Available", "Grade A+"].map(t => (
+                <span key={t} className="px-2 py-0.5 border border-[#B8860B]/30 text-[#B8860B]/60 text-[8px] font-bold uppercase tracking-wider">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Bale Categories */}
+          <div>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B8860B] mb-5">
+              Bale Categories
+            </h4>
+            <div className="flex flex-col gap-2.5">
+              {BALE_LINKS.map((cat) => (
+                <Link
+                  key={cat}
+                  to="/shop"
+                  className="text-[12px] text-white/40 hover:text-[#B8860B] transition-colors flex items-center gap-2 group"
+                >
+                  <span className="w-1 h-1 bg-[#B8860B]/40 group-hover:bg-[#B8860B] rounded-full transition-colors shrink-0" />
+                  {cat}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent mb-6">
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B8860B] mb-5">
               Quick Links
             </h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2.5">
               {[
-                { path: "/shop", label: "Shop All" },
-                { path: "/shop?filter=new_drop", label: "New Arrivals" },
-                { path: "/shop?filter=best_seller", label: "Best Sellers" },
+                { path: "/", label: "Home" },
+                { path: "/shop", label: "Bale Categories" },
                 { path: "/about", label: "About Us" },
+                { path: "/contact", label: "Contact" },
               ].map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-sm text-primary-foreground/50 hover:text-accent transition-colors"
+                  className="text-[12px] text-white/40 hover:text-[#B8860B] transition-colors flex items-center gap-2 group"
                 >
+                  <span className="w-1 h-1 bg-[#B8860B]/40 group-hover:bg-[#B8860B] rounded-full transition-colors shrink-0" />
                   {link.label}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Categories */}
-          <div>
-            <h4 className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent mb-6">
-              Categories
-            </h4>
-            <div className="flex flex-col gap-3">
-              {["Men's Wear", "Ladies Wear", "Children's Wear", "Corporate Wear", "Shoes & Slippers"].map(
-                (cat) => (
-                  <Link
-                    key={cat}
-                    to="/shop"
-                    className="text-sm text-primary-foreground/50 hover:text-accent transition-colors"
-                  >
-                    {cat}
-                  </Link>
-                )
-              )}
-            </div>
-          </div>
-
           {/* Contact */}
           <div>
-            <h4 className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent mb-6">
-              Visit Us
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#B8860B] mb-5">
+              Contact Us
             </h4>
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                <p className="text-sm text-primary-foreground/50 leading-relaxed">
-                  97/98 Ndoki by East off Ngwa Road, Aba, Abia State
+                <MapPin className="w-4 h-4 text-[#B8860B] mt-0.5 shrink-0" />
+                <p className="text-[12px] text-white/40 leading-relaxed">
+                  97/98 Ndoki by East off Ngwa Road,<br />Aba, Abia State, Nigeria
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-accent shrink-0" />
-                <p className="text-sm text-primary-foreground/50">
+                <Phone className="w-4 h-4 text-[#B8860B] shrink-0" />
+                <a href="tel:08035239489" className="text-[12px] text-white/40 hover:text-[#B8860B] transition-colors">
                   08035239489
-                </p>
+                </a>
               </div>
               <a
-                href={getWhatsAppGeneralUrl()}
+                href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 border border-accent/30 text-accent text-xs uppercase tracking-[0.15em] hover:bg-accent hover:text-foreground transition-all duration-300 w-fit"
+                className="inline-flex items-center gap-2 px-4 py-3 bg-[#B8860B] text-black text-[10px] font-black uppercase tracking-widest hover:bg-[#D4A017] transition-colors w-fit"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                Order on WhatsApp
+                <WaIcon />
+                Order via WhatsApp
               </a>
             </div>
           </div>
+
         </div>
 
-        <div className="gold-hairline w-full mt-12 mb-8" />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-primary-foreground/30 tracking-wider">
-            © 2024 Kay Amazing Grace Global. All rights reserved.
+        {/* Bottom */}
+        <div className="mt-12 pt-6 border-t border-white/6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-[11px] text-white/20 tracking-wider">
+            © 2025 Kay Amazing Grace Global. All rights reserved.
           </p>
-          <p className="text-xs text-primary-foreground/30 tracking-wider">
-            QUALITY · TRUST · VALUE — ABA, NIGERIA
+          <p className="text-[11px] text-white/20 tracking-[0.2em] uppercase">
+            Quality · Trust · Style — Aba, Nigeria
           </p>
         </div>
       </div>
