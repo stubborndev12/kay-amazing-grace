@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Package, Users, MapPin, Truck, CheckCircle } from "lucide-react";
+import { Package, Users, MapPin, Truck } from "lucide-react";
+import { SOCIAL_LINKS, FacebookIcon, InstagramIcon, TikTokIcon } from "@/lib/social.jsx";
 
 const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
 const HERO_BG = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/1bf9f2672_generated_image.png";
@@ -78,6 +79,28 @@ export default function HeroSection() {
                     <Icon className="w-3.5 h-3.5 text-[#B8860B] shrink-0" />
                     <span className="text-[10px] font-semibold uppercase tracking-wider text-white/70">{label}</span>
                   </div>
+                ))}
+              </div>
+
+              {/* Social Follow Row */}
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold whitespace-nowrap">Follow Bale Arrivals</span>
+                <div className="h-px flex-1 bg-white/10 max-w-[40px]" />
+                {[
+                  { href: SOCIAL_LINKS.instagram, icon: InstagramIcon, label: "Instagram" },
+                  { href: SOCIAL_LINKS.tiktok, icon: TikTokIcon, label: "TikTok" },
+                  { href: SOCIAL_LINKS.facebook, icon: FacebookIcon, label: "Facebook" },
+                ].map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-7 h-7 flex items-center justify-center border border-white/15 text-white/40 hover:text-[#B8860B] hover:border-[#B8860B]/50 transition-all duration-200"
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                  </a>
                 ))}
               </div>
 

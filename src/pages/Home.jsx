@@ -6,6 +6,7 @@ import BaleCategories from "../components/home/BaleCategories";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import ReviewsSection from "../components/home/ReviewsSection";
 import CTABanner from "../components/home/CTABanner";
+import SocialProofSection from "../components/home/SocialProofSection";
 
 export default function Home() {
   const { data: reviews } = useQuery({
@@ -20,6 +21,7 @@ export default function Home() {
       <BaleCategories />
       <WhyChooseUs />
       <ReviewsSection reviews={reviews} />
+      <SocialProofSection />
       <CTABanner />
     </div>
   );

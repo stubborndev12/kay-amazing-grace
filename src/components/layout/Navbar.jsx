@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SOCIAL_LINKS, FacebookIcon, InstagramIcon, TikTokIcon } from "@/lib/social.jsx";
 
 const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
 const WA_URL = "https://wa.me/2348035239489?text=Hello%20Kay%20Amazing%20Grace%20Global%2C%20I%27m%20interested%20in%20your%20bale%20products.%20Please%20send%20availability%20and%20current%20wholesale%20pricing.";
@@ -70,8 +71,28 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Desktop CTA */}
+            {/* Desktop CTA + Social Icons */}
             <div className="hidden lg:flex items-center gap-3">
+              {/* Social Icons */}
+              <div className="flex items-center gap-1.5 mr-1">
+                {[
+                  { href: SOCIAL_LINKS.facebook, icon: FacebookIcon, label: "Facebook" },
+                  { href: SOCIAL_LINKS.instagram, icon: InstagramIcon, label: "Instagram" },
+                  { href: SOCIAL_LINKS.tiktok, icon: TikTokIcon, label: "TikTok" },
+                ].map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-7 h-7 flex items-center justify-center text-white/40 hover:text-[#B8860B] transition-colors duration-200"
+                  >
+                    <Icon className="w-[14px] h-[14px]" />
+                  </a>
+                ))}
+              </div>
+              <div className="w-px h-5 bg-white/10" />
               <a
                 href={WA_URL}
                 target="_blank"
@@ -166,6 +187,25 @@ export default function Navbar() {
                   <WhatsAppIcon />
                   Order via WhatsApp
                 </a>
+                {/* Mobile Social Icons */}
+                <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-white/8">
+                  {[
+                    { href: SOCIAL_LINKS.facebook, icon: FacebookIcon, label: "Facebook" },
+                    { href: SOCIAL_LINKS.instagram, icon: InstagramIcon, label: "Instagram" },
+                    { href: SOCIAL_LINKS.tiktok, icon: TikTokIcon, label: "TikTok" },
+                  ].map(({ href, icon: Icon, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="w-9 h-9 flex items-center justify-center border border-white/10 text-white/50 hover:text-[#B8860B] hover:border-[#B8860B]/40 transition-colors"
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
                 <p className="text-center text-[10px] text-white/30 mt-3 uppercase tracking-widest">
                   Quality · Trust · Style
                 </p>
