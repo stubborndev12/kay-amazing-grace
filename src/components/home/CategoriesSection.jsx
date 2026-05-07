@@ -15,7 +15,18 @@ const categories = [
   { id: "bags_accessories", label: "Bags & Accessories", badge: "BAGS" },
 ];
 
-const BALE_IMAGE = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/b3529f9f0_generated_image.png";
+const BALE_IMAGE = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/744c46cc8_generated_image.png";
+
+const CATEGORY_IMAGES = {
+  ladies_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/69f3bca7f_generated_image.png",
+  mens_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/c9ba54fce_generated_image.png",
+  childrens_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/57a244710_generated_image.png",
+  corporate_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/cd715a1f6_generated_image.png",
+  casual_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/fc57b5d83_generated_image.png",
+  sportswear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/2a75d63e9_generated_image.png",
+  shoes_slippers: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/a57573194_generated_image.png",
+  bags_accessories: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/7c4a5a230_generated_image.png",
+};
 
 export default function CategoriesSection({ categoryImages }) {
   return (
@@ -51,7 +62,7 @@ export default function CategoriesSection({ categoryImages }) {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {categories.map((cat, i) => {
             const isBale = cat.id === "clothing_bales";
-            const imgSrc = isBale ? BALE_IMAGE : categoryImages?.[cat.id];
+            const imgSrc = isBale ? BALE_IMAGE : (categoryImages?.[cat.id] || CATEGORY_IMAGES[cat.id]);
 
             return (
               <motion.div

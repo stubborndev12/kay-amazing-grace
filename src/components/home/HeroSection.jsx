@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Package, Users, MapPin, Truck, CheckCircle } from "lucide-react";
 
 const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
-const HERO_BG = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/21c869bc8_generated_image.png";
+const HERO_BG = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/1bf9f2672_generated_image.png";
 const WA_URL = "https://wa.me/2348035239489?text=Hello%20Kay%20Amazing%20Grace%20Global%2C%20I%27m%20interested%20in%20your%20bale%20products.%20Please%20send%20availability%20and%20current%20wholesale%20pricing.";
 
 const WaIcon = () => (
@@ -25,7 +25,7 @@ export default function HeroSection() {
     <section className="relative min-h-[100svh] bg-[#080808] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={HERO_BG} alt="Thrift bale warehouse" className="w-full h-full object-cover opacity-35" />
+        <img src={HERO_BG} alt="Thrift bale warehouse" className="w-full h-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-[#050505]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/60" />
       </div>
@@ -98,39 +98,67 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* RIGHT: Logo Brand Card */}
+            {/* RIGHT: Warehouse Image + Brand Overlay */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="hidden lg:flex flex-col items-center justify-center"
+              className="hidden lg:block relative"
             >
-              {/* Logo showcase */}
-              <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-[#B8860B]/10 blur-3xl scale-125" />
+              {/* Main warehouse image */}
+              <div className="relative rounded-sm overflow-hidden border border-[#B8860B]/20 shadow-2xl shadow-black/60">
                 <img
-                  src={EAGLE_LOGO}
-                  alt="Kay Amazing Grace Global"
-                  className="relative w-80 h-80 object-contain drop-shadow-2xl"
+                  src="https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/744c46cc8_generated_image.png"
+                  alt="Kay Amazing Grace Global Warehouse"
+                  className="w-full h-[460px] object-cover"
                 />
+                {/* Dark overlay for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/20" />
+
+                {/* Gold corner accents */}
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-[#B8860B]" />
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-[#B8860B]" />
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-[#B8860B]" />
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-[#B8860B]" />
+
+                {/* Eagle logo overlay */}
+                <div className="absolute top-4 right-4">
+                  <img src={EAGLE_LOGO} alt="Kay Amazing Grace Global" className="w-20 h-20 object-contain drop-shadow-2xl opacity-90" />
+                </div>
+
+                {/* Bottom badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.9 }}
+                  className="absolute bottom-0 inset-x-0 p-5 flex items-center gap-3"
+                >
+                  <Package className="w-5 h-5 text-[#B8860B] shrink-0" />
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#B8860B]">
+                      Wholesale · Resellers · Bulk Buyers
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-wider mt-0.5">
+                      Your Reliable Okirika Bale Partner — Aba, Nigeria
+                    </p>
+                  </div>
+                </motion.div>
               </div>
 
-              {/* Badge strip */}
+              {/* Floating stat cards */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.8 }}
-                className="mt-4 flex items-center gap-3 px-6 py-3.5 bg-[#B8860B]/10 border border-[#B8860B]/30 backdrop-blur-sm"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                className="absolute -left-8 top-1/3 flex flex-col gap-2"
               >
-                <Package className="w-5 h-5 text-[#B8860B]" />
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#B8860B]">
-                    Wholesale · Resellers · Bulk Buyers
-                  </p>
-                  <p className="text-[10px] text-white/40 uppercase tracking-wider mt-0.5">
-                    Your Reliable Okirika Bale Partner
-                  </p>
-                </div>
+                {[{ val: "500+", lbl: "Buyers" }, { val: "50+", lbl: "Categories" }].map(s => (
+                  <div key={s.lbl} className="px-4 py-3 bg-[#B8860B] text-black text-center shadow-xl shadow-[#B8860B]/30">
+                    <p className="text-lg font-black leading-none">{s.val}</p>
+                    <p className="text-[8px] font-bold uppercase tracking-wider mt-0.5 opacity-70">{s.lbl}</p>
+                  </div>
+                ))}
               </motion.div>
             </motion.div>
 

@@ -2,10 +2,22 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { TAG_LABELS } from "@/lib/constants";
+import { Link } from "react-router-dom";
 
 const getWAUrl = (name) =>
   `https://wa.me/2348035239489?text=Hello%20Kay%20Amazing%20Grace%20Global%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(name)}%20%E2%80%94%20is%20it%20still%20available%3F`;
-import { Link } from "react-router-dom";
+
+const CATEGORY_FALLBACKS = {
+  mens_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/c9ba54fce_generated_image.png",
+  ladies_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/69f3bca7f_generated_image.png",
+  childrens_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/57a244710_generated_image.png",
+  corporate_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/cd715a1f6_generated_image.png",
+  casual_wear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/fc57b5d83_generated_image.png",
+  sportswear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/2a75d63e9_generated_image.png",
+  shoes_slippers: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/a57573194_generated_image.png",
+  bags_accessories: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/7c4a5a230_generated_image.png",
+  underwear_nightwear: "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/6680c1def_generated_image.png",
+};
 
 const tagStyles = {
   new_drop: "bg-accent text-foreground",
@@ -26,18 +38,20 @@ export default function ProductCard({ product, featured = false }) {
     >
       <Link to={`/product/${product.id}`} className="block">
         {/* Image */}
-        <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-          {product.image_url ? (
+        <div className="relative aspect-[3/4] overflow-hidden bg-[#111]">
+          {(product.image_url || CATEGORY_FALLBACKS[product.category]) ? (
             <img
-              src={product.image_url}
+              src={product.image_url || CATEGORY_FALLBACKS[product.category]}
               alt={product.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <span className="text-muted-foreground/30 font-heading text-2xl italic">
-                KA
-              </span>
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]">
+              <img
+                src="https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/a7966e01b_generated_image.png"
+                alt={product.name}
+                className="w-full h-full object-cover opacity-60"
+              />
             </div>
           )}
 
