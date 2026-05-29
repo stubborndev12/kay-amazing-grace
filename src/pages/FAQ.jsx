@@ -58,6 +58,30 @@ const FAQS = [
     q: "Where is Kay Amazing Grace Global located?",
     a: "We are located at 97/98 Ndoki by East off Ngwa Road, Aba, Abia State, Nigeria. Open Monday to Saturday, 8am to 6pm. Call or WhatsApp 08035239489 before visiting."
   },
+  {
+    q: "Where can I buy second-hand clothes wholesale in Nigeria?",
+    a: "The best place to buy second-hand clothes wholesale in Nigeria is Aba, Abia State. Kay Amazing Grace Global is located on Ngwa Road, Aba, and supplies quality okirika bales to buyers across all 36 states in Nigeria."
+  },
+  {
+    q: "Do you supply children thrift bales?",
+    a: "Yes. We supply children okirika bales containing baby clothes, toddler wear, girls and boys clothing, school wear, kids jackets, and nightwear. WhatsApp 08035239489 to request children bale pricing and photos."
+  },
+  {
+    q: "Do you sell shoe bales in Nigeria?",
+    a: "Yes. Kay Amazing Grace Global supplies wholesale shoe bales including men's, women's, and children's footwear — sneakers, heels, flats, sandals, slippers, and boots. Sourced from UK, USA, and Korea. WhatsApp 08035239489."
+  },
+  {
+    q: "Can boutique owners buy from you?",
+    a: "Absolutely. Many boutique owners across Lagos, Abuja, Enugu, Port Harcourt, and Southeast Nigeria buy from us. Korea bales and ladies wear bales are most popular with boutiques. Contact us on WhatsApp: 08035239489."
+  },
+  {
+    q: "Do you supply to Ariaria market traders?",
+    a: "Yes. We are based in Aba near Ariaria and supply Ariaria market traders, Ngwa Road traders, and buyers from markets across Nigeria. Walk-in buyers are welcome Monday to Saturday, 8am–6pm."
+  },
+  {
+    q: "How can I reserve a bale?",
+    a: "To reserve a bale, WhatsApp us on 08035239489 and state the bale type and quantity. We will confirm availability, send photos, and hold the bale for you upon deposit or payment confirmation."
+  },
 ];
 
 function FAQItem({ faq, index }) {

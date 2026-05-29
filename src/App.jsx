@@ -32,6 +32,9 @@ import LadiesBales from './pages/seo/LadiesBales';
 import MenBales from './pages/seo/MenBales';
 import ShoesBagsBales from './pages/seo/ShoesBagsBales';
 import Delivery from './pages/seo/Delivery';
+import ChildrenBales from './pages/seo/ChildrenBales';
+import CorporateWearBales from './pages/seo/CorporateWearBales';
+import BoutiqueReseller from './pages/seo/BoutiqueReseller';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -76,6 +79,9 @@ const AuthenticatedApp = () => {
         <Route path="/seo/men-bales" element={<MenBales />} />
         <Route path="/seo/shoes-bags-bales" element={<ShoesBagsBales />} />
         <Route path="/seo/delivery" element={<Delivery />} />
+        <Route path="/seo/children-bales" element={<ChildrenBales />} />
+        <Route path="/seo/corporate-wear-bales" element={<CorporateWearBales />} />
+        <Route path="/seo/boutique-reseller" element={<BoutiqueReseller />} />
       </Route>
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route
