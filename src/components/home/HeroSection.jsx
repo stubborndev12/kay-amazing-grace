@@ -16,9 +16,9 @@ const WaIcon = () => (
 
 const TRUST_BADGES = [
   { icon: Package, label: "Wholesale Only" },
-  { icon: Users, label: "Bulk Orders Available" },
-  { icon: MapPin, label: "Trusted Aba Supplier" },
-  { icon: Truck, label: "Nationwide Supply" },
+  { icon: Users, label: "Resellers Welcome" },
+  { icon: MapPin, label: "Based in Aba" },
+  { icon: Truck, label: "Nationwide Delivery" },
 ];
 
 export default function HeroSection() {
@@ -53,23 +53,26 @@ export default function HeroSection() {
                   <span className="text-white font-bold text-[15px] tracking-wide">Kay Amazing Grace Global</span>
                 </div>
                 <p className="text-[#B8860B] text-[10px] font-semibold uppercase tracking-[0.28em] pl-10">
-                  Premium Wholesale Okirika &amp; Thrift Bale Supplier
+                  Quality Okirika &amp; Thrift Bales — Aba, Nigeria
                 </p>
               </div>
 
               {/* Headline */}
               <h1 className="mb-5 leading-none">
                 <span className="block text-white font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight">
-                  Premium Okirika &
+                  Quality Okirika &
                 </span>
                 <span className="block text-[#B8860B] font-black text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight">
-                  Thrift Bale Supplier
+                  Thrift Bales
                 </span>
               </h1>
 
               {/* Sub */}
-              <p className="text-white/60 text-sm sm:text-base max-w-md leading-relaxed mb-8">
-                We supply carefully selected thrift clothing bales for resellers, retailers, and wholesale buyers across Nigeria.
+              <p className="text-white/60 text-sm sm:text-base max-w-md leading-relaxed mb-2">
+                Available for Resellers &amp; Bulk Buyers
+              </p>
+              <p className="text-white/40 text-sm max-w-md leading-relaxed mb-8">
+                Contact us on WhatsApp for current bale availability and pricing. We supply across Nigeria from Aba.
               </p>
 
               {/* Trust Badges */}

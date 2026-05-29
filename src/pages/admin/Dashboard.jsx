@@ -50,8 +50,8 @@ export default function Dashboard() {
           <div className="h-px w-6 bg-[#B8860B]" />
           <span className="text-[#B8860B] text-[10px] font-bold uppercase tracking-[0.3em]">Control Room</span>
         </div>
-        <h1 className="text-white font-black text-2xl md:text-3xl uppercase tracking-tight">Dashboard Overview</h1>
-        <p className="text-white/40 text-sm mt-1">Welcome back. Here's what's happening with your business.</p>
+        <h1 className="text-white font-black text-2xl md:text-3xl uppercase tracking-tight">Admin Dashboard</h1>
+        <p className="text-white/40 text-sm mt-1">Welcome back. Manage your bales, inquiries, gallery, and website content here.</p>
       </div>
 
       {/* Stats */}
@@ -69,10 +69,12 @@ export default function Dashboard() {
         <h2 className="text-white/60 text-[11px] font-bold uppercase tracking-widest mb-3">Quick Actions</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {[
-            { label: "Add Bale Product", to: "/admin/catalog" },
+            { label: "Add Bale / Product", to: "/admin/catalog" },
             { label: "Post New Arrival", to: "/admin/new-arrivals" },
-            { label: "Add Review", to: "/admin/reviews" },
+            { label: "View Inquiries", to: "/admin/inquiries" },
             { label: "Upload Gallery", to: "/admin/gallery" },
+            { label: "Add Testimonial", to: "/admin/reviews" },
+            { label: "Site Settings", to: "/admin/settings" },
           ].map(a => (
             <Link
               key={a.to}
