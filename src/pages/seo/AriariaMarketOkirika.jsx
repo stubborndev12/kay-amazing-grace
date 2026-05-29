@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function AriariaMarketOkirika() {
+  useEffect(() => { document.title = "Ariaria Market Okirika | Buy Thrift Bales Near Ariaria Aba — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Looking for okirika near Ariaria Market, Aba? Kay Amazing Grace Global on Ngwa Road supplies Grade A thrift bales close to Ariaria International Market. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Ariaria Market Okirika" category="SEO" h1="Ariaria Market Okirika — Buy Thrift Bales Near Ariaria, Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Ariaria International Market in Aba is widely recognized as one of Africa's largest markets and the epicenter of Nigeria's okirika trade. <strong className="text-white">Kay Amazing Grace Global</strong> is located on Ngwa Road, Aba — in close proximity to Ariaria — supplying Grade A okirika bales to buyers from all over Nigeria.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">About Ariaria International Market</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Ariaria International Market spans hundreds of stalls and stores across multiple sections in Aba, Abia State. The okirika section is one of the most active — with bales of all categories traded daily. Buyers from across Nigeria and neighboring countries travel to Ariaria to source wholesale clothing stock.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Buying Okirika Near Ariaria Without the Hassle</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Navigating a large market like Ariaria can be overwhelming for new buyers. Kay Amazing Grace Global offers a simpler alternative — order via WhatsApp with photo confirmation, pay by transfer, and receive delivery to your state. Or visit us directly at our Ngwa Road warehouse for a focused, no-pressure buying experience.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Where can I buy okirika near Ariaria Market Aba?",a:"Kay Amazing Grace Global is located on Ngwa Road, Aba — in close proximity to Ariaria International Market. Visit us Monday–Saturday, 8am–6pm."},{q:"Is Ariaria Market okirika the best in Nigeria?",a:"Aba's Ariaria area is widely considered Nigeria's leading okirika wholesale hub. Quality varies by supplier — Kay Amazing Grace Global guarantees Grade A stock."},{q:"Can I order Ariaria okirika without going to Aba?",a:"Yes. WhatsApp 08035239489 to order from our Aba warehouse and receive delivery nationwide."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

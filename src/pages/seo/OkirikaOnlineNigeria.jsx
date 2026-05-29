@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function OkirikaOnlineNigeria() {
+  useEffect(() => { document.title = "Buy Okirika Online Nigeria | Order Thrift Bales via WhatsApp — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Buy okirika bales online in Nigeria via WhatsApp. Kay Amazing Grace Global sends photos, confirms pricing, and delivers nationwide from Aba. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Okirika Online Nigeria" category="SEO" h1="Buy Okirika Online Nigeria — WhatsApp Orders, Nationwide Delivery">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">You can now buy quality okirika bales online without visiting any market. <strong className="text-white">Kay Amazing Grace Global</strong> in Aba processes WhatsApp orders daily — sending photos, confirming prices, and arranging delivery to any state in Nigeria. It is the safest and most convenient way to buy wholesale okirika.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">How Online Okirika Ordering Works</h2>
+      <ol className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2">{["WhatsApp 08035239489 — specify bale type and quantity","We send photos and/or video of available stock","You review and confirm your order","Make bank transfer payment","We ship from Aba to your delivery address","You receive your bale and start selling"].map((s,i)=><li key={i} className="flex items-start gap-3 list-none"><span className="text-[#B8860B] font-bold shrink-0">{i+1}.</span><span>{s}</span></li>)}</ol>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Why Online Okirika is Safe with Us</h2>
+      <ul className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2 list-none">{["Physical address in Aba — verifiable by walk-in","Photos shared before every payment","Bank transfer records provide transaction evidence","Hundreds of successful nationwide deliveries","Responsive 24-hour WhatsApp service"].map(i=><li key={i} className="flex items-start gap-2"><span className="text-[#B8860B] mt-1">▸</span><span>{i}</span></li>)}</ul>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Is it safe to buy okirika bales online in Nigeria?",a:"Yes, when buying from a verified supplier. Kay Amazing Grace Global sends photos before payment and has a verifiable Aba address. WhatsApp 08035239489."},{q:"How do I know I won't be scammed when ordering online?",a:"We share photos of the exact bale before payment. You only pay after seeing what you're buying. Our physical address is 97/98 Ndoki by East off Ngwa Road, Aba."},{q:"How quickly can I receive an online okirika order?",a:"Once payment is confirmed, we ship within 24–48 hours. Delivery typically takes 2–5 working days depending on your state."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

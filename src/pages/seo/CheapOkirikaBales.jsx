@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function CheapOkirikaBales() {
+  useEffect(() => { document.title = "Affordable Okirika Bales Nigeria | Cheap Thrift Bales — Kay Amazing Grace Global Aba"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Find affordable okirika bales in Nigeria. Kay Amazing Grace Global in Aba offers competitive wholesale pricing on Grade A thrift bales. All categories. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Affordable Okirika Bales" category="SEO" h1="Affordable Okirika Bales Nigeria — Competitive Wholesale Pricing from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Finding affordable okirika bales in Nigeria doesn't mean compromising on quality. <strong className="text-white">Kay Amazing Grace Global</strong> in Aba offers competitive wholesale pricing on Grade A thrift bales across all categories — giving resellers the best possible value for their investment.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Why Our Pricing is Competitive</h2>
+      <ul className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2 list-none">{["Direct Aba supplier — no middlemen marking up prices","High stock turnover means we don't inflate prices artificially","Bulk discounts available for 3+ bale orders","Regular stock means no artificial scarcity pricing","Transparent pricing — what we quote is what you pay"].map(i=><li key={i} className="flex items-start gap-2"><span className="text-[#B8860B] mt-1">▸</span><span>{i}</span></li>)}</ul>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Most Affordable Bale Categories</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Mixed bales are typically the most affordable entry point for new resellers. They contain variety across categories at a lower average cost per piece. UK/USA mixed bales offer the best value for market traders. Korea bales cost more but yield higher resale prices per piece.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Tips for Getting the Best Bale Value</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Buy in quantity — 3+ bales gets you bulk pricing. Specify your budget upfront — we will recommend the best category for your capital. Build a regular supplier relationship — loyal buyers get priority on new arrivals and best stock.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"What is the cheapest okirika bale type?",a:"Mixed bales are generally the most affordable okirika bale type. They contain variety across categories at a lower average cost. WhatsApp 08035239489 for current pricing."},{q:"How can I get bulk discounts on okirika bales?",a:"Order 3 or more bales at once to qualify for bulk pricing. Contact us on WhatsApp to discuss bulk order rates."},{q:"Are affordable okirika bales still Grade A quality?",a:"Yes. At Kay Amazing Grace Global, all bales — regardless of price point — are Grade A quality. We do not sell lower-grade stock."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

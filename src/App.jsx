@@ -35,6 +35,44 @@ import Delivery from './pages/seo/Delivery';
 import ChildrenBales from './pages/seo/ChildrenBales';
 import CorporateWearBales from './pages/seo/CorporateWearBales';
 import BoutiqueReseller from './pages/seo/BoutiqueReseller';
+import OkirikainAba from './pages/seo/OkirikainAba';
+import OkirikainNigeria from './pages/seo/OkirikainNigeria';
+import WholesaleOkirika from './pages/seo/WholesaleOkirika';
+import KoreaBaleSupplier from './pages/seo/KoreaBaleSupplier';
+import MixedBaleSupplier from './pages/seo/MixedBaleSupplier';
+import LadiesBaleSupplier from './pages/seo/LadiesBaleSupplier';
+import MenBaleSupplier from './pages/seo/MenBaleSupplier';
+import ChildrenClothingBaleSupplier from './pages/seo/ChildrenClothingBaleSupplier';
+import ShoeBaleSupplier from './pages/seo/ShoeBaleSupplier';
+import BagBaleSupplier from './pages/seo/BagBaleSupplier';
+import SecondHandClothesNigeria from './pages/seo/SecondHandClothesNigeria';
+import UsedClothesSupplier from './pages/seo/UsedClothesSupplier';
+import OkirikaStoreAba from './pages/seo/OkirikaStoreAba';
+import BestOkirikaSupplier from './pages/seo/BestOkirikaSupplier';
+import CheapOkirikaBales from './pages/seo/CheapOkirikaBales';
+import QualityThriftBales from './pages/seo/QualityThriftBales';
+import AriariaMarketOkirika from './pages/seo/AriariaMarketOkirika';
+import WholesaleClothingSupplier from './pages/seo/WholesaleClothingSupplier';
+import BoutiqueStockSupplier from './pages/seo/BoutiqueStockSupplier';
+import ShoesBalesNigeria from './pages/seo/ShoesBalesNigeria';
+import BagBalesNigeria from './pages/seo/BagBalesNigeria';
+import ChildrenClothingBalesNigeria from './pages/seo/ChildrenClothingBalesNigeria';
+import OkirikaSupplierNigeria from './pages/seo/OkirikaSupplierNigeria';
+import ThriftBaleSupplierAba from './pages/seo/ThriftBaleSupplierAba';
+import SportswearBalesNigeria from './pages/seo/SportswearBalesNigeria';
+import CorporateWearSupplierNigeria from './pages/seo/CorporateWearSupplierNigeria';
+import OkirikaLagos from './pages/seo/OkirikaLagos';
+import OkirikaAbuja from './pages/seo/OkirikaAbuja';
+import OkirikaPortHarcourt from './pages/seo/OkirikaPortHarcourt';
+import OkirikaEnugu from './pages/seo/OkirikaEnugu';
+import GradeAOkirikaNigeria from './pages/seo/GradeAOkirikaNigeria';
+import UKBalesNigeria from './pages/seo/UKBalesNigeria';
+import USABalesNigeria from './pages/seo/USABalesNigeria';
+import OkirikaWholesaleAbia from './pages/seo/OkirikaWholesaleAbia';
+import OkirikaResellerNigeria from './pages/seo/OkirikaResellerNigeria';
+import NationwideDeliveryOkirika from './pages/seo/NationwideDeliveryOkirika';
+import BulkOkirikaBuyer from './pages/seo/BulkOkirikaBuyer';
+import OkirikaOnlineNigeria from './pages/seo/OkirikaOnlineNigeria';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -82,6 +120,46 @@ const AuthenticatedApp = () => {
         <Route path="/seo/children-bales" element={<ChildrenBales />} />
         <Route path="/seo/corporate-wear-bales" element={<CorporateWearBales />} />
         <Route path="/seo/boutique-reseller" element={<BoutiqueReseller />} />
+        {/* New dedicated SEO supplier pages */}
+        <Route path="/okirika-in-aba" element={<OkirikainAba />} />
+        <Route path="/okirika-in-nigeria" element={<OkirikainNigeria />} />
+        <Route path="/wholesale-okirika" element={<WholesaleOkirika />} />
+        <Route path="/korea-bale-supplier-nigeria" element={<KoreaBaleSupplier />} />
+        <Route path="/mixed-bale-supplier" element={<MixedBaleSupplier />} />
+        <Route path="/ladies-bale-supplier" element={<LadiesBaleSupplier />} />
+        <Route path="/men-bale-supplier" element={<MenBaleSupplier />} />
+        <Route path="/children-clothing-bale-supplier" element={<ChildrenClothingBaleSupplier />} />
+        <Route path="/shoe-bale-supplier" element={<ShoeBaleSupplier />} />
+        <Route path="/bag-bale-supplier" element={<BagBaleSupplier />} />
+        {/* Additional high-intent keyword pages */}
+        <Route path="/second-hand-clothes-nigeria" element={<SecondHandClothesNigeria />} />
+        <Route path="/used-clothes-supplier" element={<UsedClothesSupplier />} />
+        <Route path="/okirika-store-aba" element={<OkirikaStoreAba />} />
+        <Route path="/best-okirika-supplier" element={<BestOkirikaSupplier />} />
+        <Route path="/cheap-okirika-bales" element={<CheapOkirikaBales />} />
+        <Route path="/quality-thrift-bales" element={<QualityThriftBales />} />
+        <Route path="/ariaria-market-okirika" element={<AriariaMarketOkirika />} />
+        <Route path="/wholesale-clothing-supplier" element={<WholesaleClothingSupplier />} />
+        <Route path="/boutique-stock-supplier" element={<BoutiqueStockSupplier />} />
+        <Route path="/shoe-bales-nigeria" element={<ShoesBalesNigeria />} />
+        <Route path="/bag-bales-nigeria" element={<BagBalesNigeria />} />
+        <Route path="/children-clothing-bales" element={<ChildrenClothingBalesNigeria />} />
+        <Route path="/okirika-supplier-nigeria" element={<OkirikaSupplierNigeria />} />
+        <Route path="/thrift-bale-supplier-aba" element={<ThriftBaleSupplierAba />} />
+        <Route path="/sportswear-bales-nigeria" element={<SportswearBalesNigeria />} />
+        <Route path="/corporate-wear-supplier-nigeria" element={<CorporateWearSupplierNigeria />} />
+        <Route path="/okirika-lagos" element={<OkirikaLagos />} />
+        <Route path="/okirika-abuja" element={<OkirikaAbuja />} />
+        <Route path="/okirika-port-harcourt" element={<OkirikaPortHarcourt />} />
+        <Route path="/okirika-enugu" element={<OkirikaEnugu />} />
+        <Route path="/grade-a-okirika-nigeria" element={<GradeAOkirikaNigeria />} />
+        <Route path="/uk-bales-nigeria" element={<UKBalesNigeria />} />
+        <Route path="/usa-bales-nigeria" element={<USABalesNigeria />} />
+        <Route path="/okirika-wholesale-abia" element={<OkirikaWholesaleAbia />} />
+        <Route path="/okirika-reseller-nigeria" element={<OkirikaResellerNigeria />} />
+        <Route path="/nationwide-delivery-okirika" element={<NationwideDeliveryOkirika />} />
+        <Route path="/bulk-okirika-buyer" element={<BulkOkirikaBuyer />} />
+        <Route path="/okirika-online-nigeria" element={<OkirikaOnlineNigeria />} />
       </Route>
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route

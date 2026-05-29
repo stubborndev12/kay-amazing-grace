@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function UsedClothesSupplier() {
+  useEffect(() => { document.title = "Used Clothes Supplier Nigeria | Wholesale Okirika from Aba — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Trusted used clothes supplier in Nigeria. Kay Amazing Grace Global in Aba supplies Grade A okirika bales for resellers nationwide. All categories. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Used Clothes Supplier" category="SEO" h1="Used Clothes Supplier Nigeria — Grade A Okirika Bales from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Looking for a reliable <strong className="text-white">used clothes supplier in Nigeria</strong>? Kay Amazing Grace Global is based in Aba, Abia State — the heart of Nigeria's wholesale okirika trade — and supplies Grade A used clothing bales to resellers, boutique owners, and bulk buyers across all 36 states.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">What Makes a Good Used Clothes Supplier?</h2>
+      <ul className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2 list-none">{["Grade A quality stock only — consistent, inspected bales","Transparent pricing with no hidden fees","Photos and video shared before every order","Reliable delivery to all states in Nigeria","Responsive customer service via WhatsApp"].map(i=><li key={i} className="flex items-start gap-2"><span className="text-[#B8860B] mt-1">▸</span><span>{i}</span></li>)}</ul>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Used Clothing Categories We Supply</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Ladies wear bales, men's wear bales, children's bales, Korea bales, mixed bales, corporate wear, shoes bales, bags and accessories bales, underwear and nightwear. All sourced from UK, USA, and South Korea.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Who is the most reliable used clothes supplier in Nigeria?",a:"Kay Amazing Grace Global in Aba is consistently rated among the most trusted okirika bale suppliers in Nigeria — Grade A quality, fair pricing, and nationwide delivery."},{q:"How do I find a good used clothes supplier?",a:"Look for suppliers who share photos before payment, have a physical address, offer Grade A only, and have customer testimonials. Kay Amazing Grace Global meets all these criteria."},{q:"Do you supply used clothes to Lagos?",a:"Yes. We deliver wholesale used clothes bales to Lagos and all other Nigerian states via reliable courier partners."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

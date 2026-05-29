@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function CorporateWearSupplierNigeria() {
+  useEffect(() => { document.title = "Corporate Wear Supplier Nigeria | Office Okirika Bales — Kay Amazing Grace Global Aba"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Buy wholesale corporate wear okirika bales from Kay Amazing Grace Global in Aba. Suits, blazers, formal shirts. Grade A quality. Supply for Lagos, Abuja, PH. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Corporate Wear Supplier Nigeria" category="SEO" h1="Corporate Wear Supplier Nigeria — Office Okirika Bales from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Office and corporate clothing is a growing okirika segment in Nigeria. As more Nigerians enter professional workplaces, demand for quality, affordable office wear is rising. <strong className="text-white">Kay Amazing Grace Global</strong> in Aba supplies wholesale corporate wear okirika bales — suits, blazers, formal shirts, and dress trousers — from UK and USA sources.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">What's in Corporate Wear Bales?</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">{["Men's Suits","Blazers","Formal Shirts","Dress Trousers","Ladies Office Wear","Blouses","Pencil Skirts","Ties & Accessories","Work Dresses"].map(c=><div key={c} className="border border-white/10 px-3 py-2 text-white/60 text-[12px] font-semibold">{c}</div>)}</div>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Best Markets for Corporate Okirika</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Corporate wear sells strongly near business districts in Lagos (VI, Ikeja, Lekki), Abuja (Wuse, Maitama), Port Harcourt (GRA, Trans-Amadi), and Enugu (Independence Layout). Office workers and professionals seeking affordable quality clothing are your primary customers.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Where can I buy corporate wear okirika bales in Nigeria?",a:"Kay Amazing Grace Global in Aba supplies wholesale corporate wear bales. Nationwide delivery. WhatsApp 08035239489."},{q:"Are UK corporate wear bales good quality?",a:"Yes. UK corporate wear bales typically contain M&S, Next, Debenhams, and similar quality brands in excellent condition."},{q:"Who buys corporate okirika in Nigeria?",a:"Office workers, young professionals, and people attending formal events buy corporate okirika. Strong market in business districts across Lagos, Abuja, and Port Harcourt."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}
