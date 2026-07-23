@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import { supabase } from "@/supabase/client";
 import { useAuth } from "@/lib/AuthContext";
 import {
   LayoutDashboard,
@@ -32,12 +31,8 @@ const navItems = [
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
-  const { user } = useAuth();
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    window.location.href = "/";
-  };
+  const { user, logout } = useAuth();
 
   const isActive = (item) =>
     item.exact
@@ -54,10 +49,12 @@ export default function AdminLayout() {
             alt="Logo"
             className="h-10 w-auto object-contain"
           />
+
           <div>
             <p className="text-white font-bold text-[13px] leading-tight">
               Kay Amazing Grace
             </p>
+
             <p className="text-[#B8860B] text-[9px] font-bold uppercase tracking-[0.2em]">
               Admin Panel
             </p>
@@ -82,8 +79,12 @@ export default function AdminLayout() {
               }`}
             >
               <Icon className="w-4 h-4 shrink-0" />
+
               {label}
-              {active && <ChevronRight className="w-3 h-3 ml-auto" />}
+
+              {active && (
+                <ChevronRight className="w-3 h-3 ml-auto" />
+              )}
             </Link>
           );
         })}
@@ -99,7 +100,9 @@ export default function AdminLayout() {
 
             <div className="min-w-0">
               <p className="text-white text-[11px] font-bold truncate">
-                {user.full_name || user.email || "Admin"}
+                {user.user_metadata?.full_name ||
+                  user.email ||
+                  "Admin"}
               </p>
 
               <p className="text-[#B8860B] text-[8px] uppercase font-bold tracking-widest">
@@ -121,7 +124,7 @@ export default function AdminLayout() {
         </Link>
 
         <button
-          onClick={handleLogout}
+          onClick={logout}
           className="flex items-center gap-3 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-white/40 hover:text-red-400 transition-colors w-full"
         >
           <LogOut className="w-3.5 h-3.5" />
@@ -166,13 +169,16 @@ export default function AdminLayout() {
             <p className="text-[11px] text-white font-semibold">
               Welcome back{" "}
               <span className="text-[#B8860B]">
-                {user?.full_name || user?.email || "Admin"}
+                {user?.user_metadata?.full_name ||
+                  user?.email ||
+                  "Admin"}
               </span>
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#B8860B] animate-pulse" />
+
             <span className="text-[10px] text-white/40 uppercase tracking-wider">
               Live
             </span>
