@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { base44 } from "@/api/base44Client";
+import { SettingsService } from "@/services/SettingsService";
 import { Save, RefreshCw, Globe, Phone, Megaphone, Image, Share2, Search } from "lucide-react";
 
 const SETTING_GROUPS = [
@@ -74,9 +74,9 @@ export default function Settings() {
   const [saved, setSaved] = useState(false);
 
   const { data: settings = [], isLoading } = useQuery({
-    queryKey: ["site_settings"],
-    queryFn: () => base44.entities.SiteSettings.list(),
-  });
+  queryKey: ["site_settings"],
+  queryFn: () => SettingsService.list(),
+});
 
   // Sync DB values into local state once loaded
   useEffect(() => {
@@ -96,23 +96,43 @@ export default function Settings() {
   const set = (key, val) => setLocalValues(v => ({ ...v, [key]: val }));
 
   const saveAll = useMutation({
-    mutationFn: async () => {
-      for (const field of ALL_FIELDS) {
-        const existing = settings.find(s => s.key === field.key);
-        const value = localValues[field.key] ?? field.value;
-        if (existing) {
-          await base44.entities.SiteSettings.update(existing.id, { value });
-        } else {
-          await base44.entities.SiteSettings.create({ key: field.key, value, label: field.label, setting_type: field.type });
-        }
+  mutationFn: async () => {
+    for (const field of ALL_FIELDS) {
+      const existing = settings.find(
+        (s) => s.key === field.key
+      );
+
+      const value =
+        localValues[field.key] ?? field.value;
+
+      if (existing) {
+        await SettingsService.update(
+          existing.id,
+          { value }
+        );
+      } else {
+        await SettingsService.create({
+          key: field.key,
+          value,
+          label: field.label,
+          setting_type: field.type,
+        });
       }
-    },
-    onSuccess: () => {
-      qc.invalidateQueries(["site_settings"]);
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    },
-  });
+    }
+  },
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["site_settings"],
+    });
+
+    setSaved(true);
+
+    setTimeout(() => {
+      setSaved(false);
+    }, 3000);
+  },
+});
 
   if (isLoading) return <div className="text-white/40 text-sm py-12 text-center">Loading settings...</div>;
 

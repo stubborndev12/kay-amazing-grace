@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { base44 } from "@/api/base44Client";
+import { NewArrivalService } from "@/services/NewArrivalService";
+import { StorageService } from "@/services/StorageService";
 import { Plus, Pencil, Trash2, Eye, EyeOff, Star } from "lucide-react";
 
 const CATEGORIES = [
@@ -26,13 +27,30 @@ function ArrivalForm({ initial, onSave, onCancel }) {
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
   const handleImage = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  const file = e.target.files[0];
+  if (!file) return;
+
+  try {
     setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    set("image_url", file_url);
+
+    if (form.image_url) {
+      try {
+        await StorageService.deleteProductImage(form.image_url);
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+
+    const imageUrl = await StorageService.uploadProductImage(file);
+
+    set("image_url", imageUrl);
+  } catch (err) {
+    console.error(err);
+    alert("Image upload failed.");
+  } finally {
     setUploading(false);
-  };
+  }
+};
 
   return (
     <div className="bg-[#111] border border-[#B8860B]/30 p-6 space-y-4">
@@ -100,23 +118,53 @@ export default function NewArrivals() {
 
   const { data: arrivals = [], isLoading } = useQuery({
     queryKey: ["arrivals"],
-    queryFn: () => base44.entities.NewArrival.list("-created_date"),
+    queryFn: () => NewArrivalService.list(),
   });
 
   const save = useMutation({
-    mutationFn: (form) => form.id ? base44.entities.NewArrival.update(form.id, form) : base44.entities.NewArrival.create(form),
-    onSuccess: () => { qc.invalidateQueries(["arrivals"]); setShowForm(false); setEditing(null); },
-  });
+  mutationFn: (form) =>
+    form.id
+      ? NewArrivalService.update(form.id, form)
+      : NewArrivalService.create(form),
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["arrivals"],
+    });
+
+    setShowForm(false);
+    setEditing(null);
+  },
+});
 
   const remove = useMutation({
-    mutationFn: (id) => base44.entities.NewArrival.delete(id),
-    onSuccess: () => qc.invalidateQueries(["arrivals"]),
-  });
+  mutationFn: async (arrival) => {
+    if (arrival.image_url) {
+      await StorageService.deleteProductImage(arrival.image_url);
+    }
+
+    return NewArrivalService.delete(arrival.id);
+  },
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["arrivals"],
+    });
+  },
+});
 
   const toggle = useMutation({
-    mutationFn: ({ id, is_active }) => base44.entities.NewArrival.update(id, { is_active: !is_active }),
-    onSuccess: () => qc.invalidateQueries(["arrivals"]),
-  });
+  mutationFn: ({ id, is_active }) =>
+    NewArrivalService.update(id, {
+      is_active: !is_active,
+    }),
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["arrivals"],
+    });
+  },
+});
 
   return (
     <div className="space-y-6">
@@ -166,7 +214,7 @@ export default function NewArrivals() {
                     {arr.is_active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                   </button>
                   <button onClick={() => setEditing(arr)} className="p-1.5 text-white/30 hover:text-white transition-colors"><Pencil className="w-4 h-4" /></button>
-                  <button onClick={() => { if (confirm("Delete?")) remove.mutate(arr.id); }} className="p-1.5 text-white/30 hover:text-red-400 transition-colors"><Trash2 className="w-4 h-4" /></button>
+                  <button onClick={() => { if (confirm("Delete?")) remove.mutate(arr); }} className="p-1.5 text-white/30 hover:text-red-400 transition-colors"><Trash2 className="w-4 h-4" /></button>
                 </div>
               </div>
             </div>

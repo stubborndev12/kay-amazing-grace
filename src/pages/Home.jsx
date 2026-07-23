@@ -1,6 +1,6 @@
 import React from "react";
-import { base44 } from "@/api/base44Client";
 import { useQuery } from "@tanstack/react-query";
+
 import HeroSection from "../components/home/HeroSection";
 import BaleCategories from "../components/home/BaleCategories";
 import WhyChooseUs from "../components/home/WhyChooseUs";
@@ -9,11 +9,12 @@ import CTABanner from "../components/home/CTABanner";
 import SocialProofSection from "../components/home/SocialProofSection";
 import SEOLinksSection from "../components/home/SEOLinksSection";
 
+import { ReviewService } from "@/services/ReviewService";
+
 export default function Home() {
-  const { data: reviews } = useQuery({
+  const { data: reviews = [] } = useQuery({
     queryKey: ["reviews"],
-    queryFn: () => base44.entities.Review.list("-created_date", 6),
-    initialData: [],
+    queryFn: () => ReviewService.list(6),
   });
 
   return (

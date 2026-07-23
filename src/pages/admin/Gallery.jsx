@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { base44 } from "@/api/base44Client";
+import { GalleryService } from "@/services/GalleryService";
+import { StorageService } from "@/services/StorageService";
 import { Plus, Trash2, Star, Play } from "lucide-react";
 
 const GALLERY_TYPES = [
@@ -19,13 +20,32 @@ function GalleryForm({ initial, onSave, onCancel }) {
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
 
   const handleImage = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  const file = e.target.files[0];
+  if (!file) return;
+
+  try {
     setUploading(true);
-    const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    set("image_url", file_url);
+
+    // Delete old image if replacing one
+    if (form.image_url) {
+      try {
+        await StorageService.deleteProductImage(form.image_url);
+      } catch (err) {
+        console.warn("Could not delete previous image:", err);
+      }
+    }
+
+    const imageUrl =
+      await StorageService.uploadProductImage(file);
+
+    set("image_url", imageUrl);
+  } catch (err) {
+    console.error(err);
+    alert("Image upload failed.");
+  } finally {
     setUploading(false);
-  };
+  }
+};
 
   return (
     <div className="bg-[#111] border border-[#B8860B]/30 p-6 space-y-4">
@@ -93,24 +113,50 @@ export default function Gallery() {
   const [filterType, setFilterType] = useState("all");
 
   const { data: gallery = [], isLoading } = useQuery({
-    queryKey: ["gallery"],
-    queryFn: () => base44.entities.GalleryImage.list("-created_date"),
-  });
+  queryKey: ["gallery"],
+  queryFn: () => GalleryService.list(),
+});
 
   const save = useMutation({
-    mutationFn: (form) => base44.entities.GalleryImage.create(form),
-    onSuccess: () => { qc.invalidateQueries(["gallery"]); setShowForm(false); },
-  });
+  mutationFn: (form) => GalleryService.create(form),
 
-  const remove = useMutation({
-    mutationFn: (id) => base44.entities.GalleryImage.delete(id),
-    onSuccess: () => qc.invalidateQueries(["gallery"]),
-  });
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["gallery"],
+    });
+
+    setShowForm(false);
+  },
+});
+
+ const remove = useMutation({
+  mutationFn: async (item) => {
+    if (item.image_url) {
+      await StorageService.deleteProductImage(item.image_url);
+    }
+
+    return GalleryService.delete(item.id);
+  },
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["gallery"],
+    });
+  },
+});
 
   const toggleFeatured = useMutation({
-    mutationFn: ({ id, is_featured }) => base44.entities.GalleryImage.update(id, { is_featured: !is_featured }),
-    onSuccess: () => qc.invalidateQueries(["gallery"]),
-  });
+  mutationFn: ({ id, is_featured }) =>
+    GalleryService.update(id, {
+      is_featured: !is_featured,
+    }),
+
+  onSuccess: () => {
+    qc.invalidateQueries({
+      queryKey: ["gallery"],
+    });
+  },
+});
 
   const filtered = filterType === "all" ? gallery : gallery.filter(g => g.gallery_type === filterType);
 
@@ -176,7 +222,7 @@ export default function Gallery() {
                     <button onClick={() => toggleFeatured.mutate({ id: item.id, is_featured: item.is_featured })} className="p-1 text-white/30 hover:text-[#B8860B] transition-colors">
                       <Star className="w-3.5 h-3.5" fill={item.is_featured ? "currentColor" : "none"} />
                     </button>
-                    <button onClick={() => { if (confirm("Delete?")) remove.mutate(item.id); }} className="p-1 text-white/30 hover:text-red-400 transition-colors">
+                    <button onClick={() => { if (confirm("Delete?")) remove.mutate(item); }} className="p-1 text-white/30 hover:text-red-400 transition-colors">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>

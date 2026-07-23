@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
-import {
-  LayoutDashboard, Package, MessageSquare, Star, Image,
-  Settings, Sparkles, Menu, LogOut, ChevronRight, User
-} from "lucide-react";
-import { base44 } from "@/api/base44Client";
+import { supabase } from "@/supabase/client";
 import { useAuth } from "@/lib/AuthContext";
+import {
+  LayoutDashboard,
+  Package,
+  MessageSquare,
+  Star,
+  Image,
+  Settings,
+  Sparkles,
+  Menu,
+  LogOut,
+  ChevronRight,
+  User,
+} from "lucide-react";
 
-const EAGLE_LOGO = "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
+const EAGLE_LOGO =
+  "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
 
 const navItems = [
   { path: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
@@ -24,34 +34,48 @@ export default function AdminLayout() {
   const location = useLocation();
   const { user } = useAuth();
 
-  const isActive = (item) =>
-    item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path);
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    window.location.href = "/";
+  };
 
-  const handleLogout = () => base44.auth.logout("/");
+  const isActive = (item) =>
+    item.exact
+      ? location.pathname === item.path
+      : location.pathname.startsWith(item.path);
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Brand */}
       <div className="px-5 py-5 border-b border-[#B8860B]/20">
         <div className="flex items-center gap-3">
-          <img src={EAGLE_LOGO} alt="Logo" className="h-10 w-auto object-contain" />
+          <img
+            src={EAGLE_LOGO}
+            alt="Logo"
+            className="h-10 w-auto object-contain"
+          />
           <div>
-            <p className="text-white font-bold text-[13px] leading-tight">Kay Amazing Grace</p>
-            <p className="text-[#B8860B] text-[9px] font-bold uppercase tracking-[0.2em]">Admin Panel</p>
+            <p className="text-white font-bold text-[13px] leading-tight">
+              Kay Amazing Grace
+            </p>
+            <p className="text-[#B8860B] text-[9px] font-bold uppercase tracking-[0.2em]">
+              Admin Panel
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Nav */}
+      {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
         {navItems.map(({ path, label, icon: Icon, exact }) => {
           const active = isActive({ path, exact });
+
           return (
             <Link
               key={path}
               to={path}
               onClick={() => setSidebarOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 text-[12px] font-semibold uppercase tracking-wider transition-all duration-150 group ${
+              className={`flex items-center gap-3 px-4 py-3 text-[12px] font-semibold uppercase tracking-wider transition-all duration-150 ${
                 active
                   ? "bg-[#B8860B] text-black"
                   : "text-white/55 hover:text-white hover:bg-white/5"
@@ -65,22 +89,28 @@ export default function AdminLayout() {
         })}
       </nav>
 
-      {/* User info */}
+      {/* User */}
       {user && (
-        <div className="px-4 py-3 border-t border-white/8 border-b border-white/8">
+        <div className="px-4 py-3 border-y border-white/8">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-[#B8860B]/20 border border-[#B8860B]/40 flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 rounded-full bg-[#B8860B]/20 border border-[#B8860B]/40 flex items-center justify-center">
               <User className="w-3.5 h-3.5 text-[#B8860B]" />
             </div>
+
             <div className="min-w-0">
-              <p className="text-white text-[11px] font-bold truncate">{user.full_name || "Admin"}</p>
-              <p className="text-[#B8860B] text-[8px] uppercase font-bold tracking-widest">Super Admin</p>
+              <p className="text-white text-[11px] font-bold truncate">
+                {user.full_name || user.email || "Admin"}
+              </p>
+
+              <p className="text-[#B8860B] text-[8px] uppercase font-bold tracking-widest">
+                Super Admin
+              </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* Bottom */}
+      {/* Footer */}
       <div className="px-3 py-4 border-t border-white/8">
         <Link
           to="/"
@@ -89,6 +119,7 @@ export default function AdminLayout() {
           <ChevronRight className="w-3.5 h-3.5 rotate-180" />
           View Website
         </Link>
+
         <button
           onClick={handleLogout}
           className="flex items-center gap-3 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-white/40 hover:text-red-400 transition-colors w-full"
@@ -110,7 +141,11 @@ export default function AdminLayout() {
       {/* Mobile Sidebar */}
       {sidebarOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
-          <div className="absolute inset-0 bg-black/70" onClick={() => setSidebarOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/70"
+            onClick={() => setSidebarOpen(false)}
+          />
+
           <aside className="relative z-10 w-64 bg-[#0d0d0d] border-r border-[#B8860B]/20 flex flex-col">
             <SidebarContent />
           </aside>
@@ -119,26 +154,31 @@ export default function AdminLayout() {
 
       {/* Main */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top bar */}
-        <header className="flex items-center justify-between px-5 py-3.5 bg-[#0d0d0d] border-b border-[#B8860B]/20 shrink-0">
+        <header className="flex items-center justify-between px-5 py-3.5 bg-[#0d0d0d] border-b border-[#B8860B]/20">
           <button
             onClick={() => setSidebarOpen(true)}
             className="lg:hidden p-1.5 text-white/60 hover:text-white"
           >
             <Menu className="w-5 h-5" />
           </button>
+
           <div className="hidden lg:block">
             <p className="text-[11px] text-white font-semibold">
-              Welcome back, <span className="text-[#B8860B]">Kay Amazing Grace Global Admin</span>
+              Welcome back{" "}
+              <span className="text-[#B8860B]">
+                {user?.full_name || user?.email || "Admin"}
+              </span>
             </p>
           </div>
+
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#B8860B] animate-pulse" />
-            <span className="text-[10px] text-white/40 uppercase tracking-wider">Live</span>
+            <span className="text-[10px] text-white/40 uppercase tracking-wider">
+              Live
+            </span>
           </div>
         </header>
 
-        {/* Content */}
         <main className="flex-1 overflow-y-auto p-5 md:p-7">
           <Outlet />
         </main>
