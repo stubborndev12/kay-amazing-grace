@@ -15,8 +15,7 @@ import {
   User,
 } from "lucide-react";
 
-const EAGLE_LOGO =
-  "https://media.base44.com/images/public/69edd82e4a975eaa5f121f62/03bd86246_ChatGPT_Image_May_7__2026__04_17_01_PM-removebg-preview.png";
+const EAGLE_LOGO = new URL("../../assets/eagle-logo.png", import.meta.url).href;
 
 const navItems = [
   { path: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },

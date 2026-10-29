@@ -23,7 +23,7 @@ Bale and thrift trading runs on WhatsApp screenshots and voice notes. Buyers can
 
 ## Stack
 
-React, JavaScript, Vite, Base44 backend (entities, auth, functions), deployed on Vercel
+React, JavaScript, Vite, managed backend (entities, auth, serverless functions), deployed on Vercel
 
 ## Built by
 
