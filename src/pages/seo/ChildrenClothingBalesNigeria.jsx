@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function ChildrenClothingBalesNigeria() {
+  useEffect(() => { document.title = "Children Clothing Bales Nigeria | Kids Okirika Bales — Kay Amazing Grace Global Aba"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Buy wholesale children clothing bales in Nigeria from Kay Amazing Grace Global, Aba. Grade A kids okirika from UK and USA. Nationwide delivery. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Children Clothing Bales Nigeria" category="SEO" h1="Children Clothing Bales Nigeria — Wholesale Kids Okirika from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Children's clothing bales are one of the most stable income sources in Nigeria's okirika trade. Growing children require constant wardrobe updates — making kids okirika a high-frequency purchase. <strong className="text-white">Kay Amazing Grace Global</strong> in Aba supplies Grade A children's clothing bales to traders and resellers across Nigeria.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Children's Bale Contents</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">{["Baby Clothes (0–2yr)","Toddler Wear","Girls' Dresses","Boys' Shirts & Trousers","School Wear","Kids Jackets","Sleepwear","Children's Sportswear","Party Wear"].map(c=><div key={c} className="border border-white/10 px-3 py-2 text-white/60 text-[12px] font-semibold">{c}</div>)}</div>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Back-to-School Demand Spikes</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">School resumption periods (January, September) create significant demand spikes for children's okirika. Resellers who stock up before resumption periods consistently report higher sales and better margins. Contact us before school resumption to secure stock early.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Where can I buy children clothing bales in Nigeria?",a:"Kay Amazing Grace Global in Aba supplies Grade A children's okirika bales to all Nigerian states. WhatsApp 08035239489 for current stock."},{q:"What ages are in a children's bale?",a:"Typically 0–12 years. We can try to source bales focused on specific age ranges. Contact us to discuss your requirements."},{q:"Are children's bales from UK brands good quality?",a:"UK children's bales frequently contain M&S, Next, John Lewis, and other quality brands in excellent condition. Very popular with Nigerian parents."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function OkirikaLagos() {
+  useEffect(() => { document.title = "Okirika Lagos | Buy Wholesale Okirika Bales for Lagos Resellers — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Wholesale okirika bales delivered to Lagos. Kay Amazing Grace Global in Aba supplies Grade A thrift bales for Lagos resellers, Balogun market traders, and boutiques. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Okirika Lagos" category="SEO" h1="Okirika Lagos — Wholesale Bales Delivered from Aba to Lagos">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Lagos is Nigeria's commercial capital and the country's biggest okirika market. Thousands of resellers, boutique owners, and market traders in Lagos source their wholesale bale stock from Aba suppliers like <strong className="text-white">Kay Amazing Grace Global</strong>. Order via WhatsApp and receive delivery to Lagos within days.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Popular Lagos Markets for Okirika</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Balogun Market, Tejuosho Market (Yaba), Katangua Market (Oshodi), and Ladipo Market are key Lagos okirika trading points. Many Lagos traders source wholesale bales from Aba and sell at these markets or via social media platforms.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">How Lagos Buyers Order from Our Aba Warehouse</h2>
+      <ol className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2">{["WhatsApp 08035239489 with your bale requirements","Receive photos of available stock","Confirm order and payment","Bank transfer payment","Bale delivered to your Lagos address within 2–4 working days"].map((s,i)=><li key={i} className="flex items-start gap-3 list-none"><span className="text-[#B8860B] font-bold shrink-0">{i+1}.</span><span>{s}</span></li>)}</ol>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Can I buy okirika bales from Aba and get them delivered to Lagos?",a:"Yes. Kay Amazing Grace Global delivers to Lagos via reliable courier. Typical delivery time is 2–4 working days after payment confirmation."},{q:"What okirika categories sell best in Lagos?",a:"Ladies wear, Korea bales, shoes bales, and bags bales sell strongly across Lagos markets and online platforms."},{q:"How do I order without traveling to Aba?",a:"WhatsApp 08035239489. We send photos, confirm pricing, and arrange delivery directly to your Lagos address."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function QualityThriftBales() {
+  useEffect(() => { document.title = "Quality Thrift Bales Nigeria | Grade A Okirika Supplier — Kay Amazing Grace Global Aba"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Buy quality Grade A thrift bales in Nigeria from Kay Amazing Grace Global, Aba. All categories inspected and sorted. Trusted by hundreds of resellers. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Quality Thrift Bales" category="SEO" h1="Quality Thrift Bales Nigeria — Grade A Okirika from Kay Amazing Grace Global">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Quality thrift bales are the foundation of a profitable reselling business. When you buy Grade A okirika, your customers are satisfied, your reputation grows, and repeat buyers return. <strong className="text-white">Kay Amazing Grace Global</strong> in Aba specializes exclusively in Grade A quality thrift bales — inspected, sorted, and ready for resale.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">What Does Grade A Mean?</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Grade A thrift clothing is in excellent condition — minimal wear, no significant damage, tears, or staining. Items are often near-new with original tags, or have very light use marks at most. Grade A bales command the best resale prices and generate the highest customer satisfaction.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Our Quality Assurance Process</h2>
+      <ul className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2 list-none">{["All incoming bales are inspected at our Aba warehouse","Damaged or below-standard items are removed","Category sorting ensures you receive what you ordered","Photos and video shared before every order confirmation","Buyers can visit our Aba warehouse to inspect bales in person"].map(i=><li key={i} className="flex items-start gap-2"><span className="text-[#B8860B] mt-1">▸</span><span>{i}</span></li>)}</ul>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"How do I know the quality before buying?",a:"We send photos and video of every bale before payment. Walk-in buyers can inspect stock at our Aba warehouse. All bales are Grade A — if you are unsatisfied, contact us immediately."},{q:"What is Grade A thrift clothing?",a:"Grade A is the highest okirika quality level — excellent condition, minimal wear, no major damage. At Kay Amazing Grace Global, we sell Grade A only."},{q:"Are quality thrift bales more expensive?",a:"Grade A bales cost slightly more than lower-grade alternatives, but the higher resale price and customer satisfaction makes them far more profitable."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

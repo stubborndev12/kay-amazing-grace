@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --background: 30 20% 95%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 0 0% 4%;
+    --primary-foreground: 30 20% 95%;
+    --secondary: 30 15% 90%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 30 10% 92%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 40 45% 56%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 40 45% 56%;
+    --chart-1: 40 45% 56%;
+    --chart-2: 30 20% 70%;
+    --chart-3: 0 0% 20%;
+    --chart-4: 30 30% 80%;
+    --chart-5: 40 30% 45%;
+    --radius: 0.25rem;
+    --sidebar-background: 30 20% 95%;
+    --sidebar-foreground: 0 0% 4%;
+    --sidebar-primary: 0 0% 4%;
+    --sidebar-primary-foreground: 30 20% 95%;
+    --sidebar-accent: 30 15% 90%;
+    --sidebar-accent-foreground: 0 0% 4%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 40 45% 56%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 30 20% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 30 20% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 30 20% 95%;
+    --primary: 30 20% 95%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 30 20% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 30 10% 60%;
+    --accent: 40 45% 56%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 40 45% 56%;
+    --chart-1: 40 45% 56%;
+    --chart-2: 30 20% 50%;
+    --chart-3: 0 0% 60%;
+    --chart-4: 30 30% 40%;
+    --chart-5: 40 30% 65%;
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 30 20% 95%;
+    --sidebar-primary: 30 20% 95%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 40 45% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .gold-hairline {
+    height: 0.5px;
+    background: hsl(var(--accent));
+  }
+}
+
+/* Admin UI utilities */
+@layer components {
+  .admin-label {
+    @apply block text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 mb-1.5;
+  }
+  .admin-input {
+    @apply w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-3 py-2.5 focus:outline-none focus:border-[#B8860B]/60 placeholder:text-white/25 transition-colors;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent) / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.6);
+}

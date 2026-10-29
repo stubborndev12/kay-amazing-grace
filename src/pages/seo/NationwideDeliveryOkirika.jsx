@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function NationwideDeliveryOkirika() {
+  useEffect(() => { document.title = "Okirika Delivery Nationwide Nigeria | Bales Delivered to All States — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Order okirika bales from Aba and get them delivered nationwide across Nigeria. Kay Amazing Grace Global ships to all 36 states. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Nationwide Delivery Okirika" category="SEO" h1="Okirika Delivered Nationwide — All 36 States from Kay Amazing Grace Global, Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">You don't need to be in Aba to benefit from Aba's wholesale okirika prices. <strong className="text-white">Kay Amazing Grace Global</strong> delivers Grade A okirika bales to all 36 Nigerian states — Lagos, Abuja, Port Harcourt, Kano, Enugu, Calabar, Benin City, Uyo, Warri, Ibadan, and every other state capital and city.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">States We Deliver To</h2>
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-6">{["Lagos","Abuja FCT","Rivers (PH)","Anambra","Enugu","Kano","Kaduna","Ogun","Oyo","Delta","Edo","Cross River","Akwa Ibom","Imo","Ebonyi","Abia","All other states"].map(c=><div key={c} className="border border-white/10 px-2 py-1.5 text-white/50 text-[11px]">{c}</div>)}</div>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Delivery Process</h2>
+      <ol className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2">{["WhatsApp 08035239489 with your order details","Receive photos and confirm pricing","Pay via bank transfer","Bale packaged securely at our Aba warehouse","Shipped via GIG Logistics, CTG Express, or equivalent","Delivered to your door or pickup point"].map((s,i)=><li key={i} className="flex items-start gap-3 list-none"><span className="text-[#B8860B] font-bold shrink-0">{i+1}.</span><span>{s}</span></li>)}</ol>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Do you deliver okirika to all states in Nigeria?",a:"Yes. Kay Amazing Grace Global delivers to all 36 Nigerian states from our Aba warehouse. WhatsApp 08035239489 for delivery rates."},{q:"How long does delivery take from Aba?",a:"Typically 2–5 working days depending on destination state. Lagos and neighboring states are often faster."},{q:"How do I track my okirika delivery?",a:"We provide waybill tracking numbers from our logistics partners so you can monitor your bale delivery in real time."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

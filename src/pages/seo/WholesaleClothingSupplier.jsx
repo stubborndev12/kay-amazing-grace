@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function WholesaleClothingSupplier() {
+  useEffect(() => { document.title = "Wholesale Clothing Supplier Nigeria | Okirika Bales — Kay Amazing Grace Global Aba"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Trusted wholesale clothing supplier in Nigeria. Kay Amazing Grace Global in Aba provides Grade A okirika and thrift bales for resellers, boutiques, and market traders. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Wholesale Clothing Supplier" category="SEO" h1="Wholesale Clothing Supplier Nigeria — Okirika Bales from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Nigeria's clothing trade is one of the most active in Africa. Wholesale clothing suppliers who can provide consistent, quality stock at competitive prices are the backbone of Nigeria's fashion retail ecosystem. <strong className="text-white">Kay Amazing Grace Global</strong> is a wholesale clothing supplier based in Aba, supplying Grade A okirika bales to the entire country.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">What We Supply</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">{["Ladies Wear Bales","Men's Wear Bales","Children's Bales","Korea Fashion Bales","Mixed Bales","Corporate Wear","Shoes Bales","Bags & Accessories","Underwear / Nightwear"].map(c=><div key={c} className="border border-white/10 px-3 py-2 text-white/60 text-[12px] font-semibold">{c}</div>)}</div>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Why Choose Us as Your Wholesale Clothing Supplier</h2>
+      <ul className="text-white/70 text-[14px] leading-relaxed mb-6 space-y-2 list-none">{["Physical warehouse in Aba — verifiable and walk-in friendly","Grade A quality across all categories","WhatsApp ordering — stock anywhere in Nigeria","Nationwide delivery to all 36 states","Regular new arrivals — fresh stock consistently"].map(i=><li key={i} className="flex items-start gap-2"><span className="text-[#B8860B] mt-1">▸</span><span>{i}</span></li>)}</ul>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Where is the best wholesale clothing supplier in Nigeria?",a:"Kay Amazing Grace Global on Ngwa Road, Aba is one of Nigeria's most trusted wholesale clothing suppliers — Grade A okirika bales, all categories, nationwide delivery."},{q:"Can wholesale clothing suppliers deliver to Lagos?",a:"Yes. We deliver wholesale clothing bales to Lagos, Abuja, Port Harcourt, Enugu, Kano, and all states nationwide."},{q:"What is the minimum order for wholesale clothing?",a:"Minimum order is 1 bale. Bulk pricing available from 3 bales. WhatsApp 08035239489 for current rates."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

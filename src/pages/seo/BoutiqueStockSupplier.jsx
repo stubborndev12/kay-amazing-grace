@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from "react";
+import SEOPageLayout from "@/components/seo/SEOPageLayout";
+const F = ({ q, a }) => { const [o, s] = useState(false); return <div className="border-b border-white/8"><button onClick={() => s(!o)} className="w-full flex items-start justify-between gap-4 py-4 text-left"><span className="text-white font-semibold text-[14px] leading-snug">{q}</span><span className="text-[#B8860B] text-lg shrink-0">{o ? "−" : "+"}</span></button>{o && <p className="text-white/55 text-[13px] leading-relaxed pb-4 pr-8">{a}</p>}</div>; };
+export default function BoutiqueStockSupplier() {
+  useEffect(() => { document.title = "Boutique Stock Supplier Nigeria | Korea Bales for Boutiques — Kay Amazing Grace Global"; const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute("content", "Supplying boutiques across Nigeria with quality okirika and Korea bales. Kay Amazing Grace Global in Aba is Nigeria's trusted boutique stock supplier. WhatsApp 08035239489."); }, []);
+  return (
+    <SEOPageLayout breadcrumb="Boutique Stock Supplier" category="SEO" h1="Boutique Stock Supplier Nigeria — Korea Bales & Quality Okirika from Aba">
+      <p className="text-white/70 text-[15px] leading-relaxed mb-6">Boutique owners across Nigeria need reliable, quality, fashion-forward stock at wholesale prices. <strong className="text-white">Kay Amazing Grace Global</strong> has become one of the most trusted boutique stock suppliers in Nigeria — specializing in Korea bales and premium ladies okirika for boutiques in Lagos, Abuja, Port Harcourt, Enugu, and across Southeast Nigeria.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">Best Bale Categories for Boutiques</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4"><strong className="text-white">Korea Ladies Bales</strong> — The top choice for most boutiques. Modern Korean fashion, excellent condition, high resale value. Customers see boutique-quality items at accessible prices.</p>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4"><strong className="text-white">UK Ladies Bales</strong> — Classic British fashion brands. Dresses, blazers, blouses, and smart-casual wear. Great for boutiques with professional or mature customer bases.</p>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4"><strong className="text-white">Corporate Wear Bales</strong> — Office clothing for professional women and men. Suits, blazers, formal dresses, and smart trousers. Strong seller in boutiques near business districts.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">What Boutique Owners Say</h2>
+      <p className="text-white/70 text-[14px] leading-relaxed mb-4">Boutique owners across Nigeria have been buying from Kay Amazing Grace Global for consistent quality and reliable supply. Korea bales in particular are praised for their fashion content and strong customer acceptance. Many boutique owners have scaled from 1 bale to 5+ bale orders per month.</p>
+      <h2 className="text-white font-bold text-xl mt-8 mb-3">FAQs</h2>
+      <div className="mt-4 mb-8">{[{q:"Which okirika bales are best for boutiques in Nigeria?",a:"Korea ladies bales are the most popular for boutiques due to their fashion quality and high resale value. UK ladies bales and corporate wear bales are also strong sellers for boutique owners."},{q:"Can a boutique owner order from Aba without visiting?",a:"Yes. WhatsApp 08035239489, receive photos of available stock, confirm payment, and we deliver to your boutique location anywhere in Nigeria."},{q:"Do you supply boutiques regularly?",a:"Yes. Many boutiques order monthly or bi-monthly from us. We prioritize regular buyers and can notify you of fresh arrivals in your preferred categories."}].map((f,i)=><F key={i} {...f}/>)}</div>
+    </SEOPageLayout>
+  );
+}

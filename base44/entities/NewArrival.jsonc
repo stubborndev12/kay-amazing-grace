@@ -1,0 +1,58 @@
+{
+  "name": "NewArrival",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Arrival title"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "mens_wear",
+        "ladies_wear",
+        "childrens_wear",
+        "corporate_wear",
+        "casual_wear",
+        "sportswear",
+        "shoes_slippers",
+        "bags_accessories",
+        "underwear_nightwear",
+        "mixed",
+        "korea",
+        "special"
+      ],
+      "description": "Bale category"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Image URL"
+    },
+    "youtube_url": {
+      "type": "string",
+      "description": "YouTube video link"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show on website"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Feature on homepage"
+    },
+    "whatsapp_message": {
+      "type": "string",
+      "description": "Custom WhatsApp inquiry message"
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ]
+}
